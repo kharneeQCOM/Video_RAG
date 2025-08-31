@@ -54,8 +54,6 @@ The `rag_agent.py` script contains the logic for the RAG agent. You can interact
 -   `embed_gen.py`: Script responsible for generating embeddings from transcript.
 -   `rag_agent.py`: Main script for the Retrieval Augmented Generation agent.
 -   `trans_playlist.json`: Stores information about transcribed videos or playlists.
--   `chroma_langchain_db/`: Directory containing the ChromaDB vector store.
--   `rag/`: Additional modules or scripts related to the RAG implementation.
 
 ## Contributing
 Contributions are welcome! Please feel free to open issues or submit pull requests.
