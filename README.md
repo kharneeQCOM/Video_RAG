@@ -46,7 +46,7 @@ Run `Whisper_Run.ipynb` to process videos, generate transcripts.
 ### 2. Generate Embeddings and save to Chroma DB
 Run `embeg_gen.py` to process  transcripts to generate embeddings and save to DB.
 
-### 2. Interact with the RAG Agent
+### 3. Interact with the RAG Agent
 The `rag_agent.py` script contains the logic for the RAG agent. You can interact with it to query your video content.
 
 ### File Structure
