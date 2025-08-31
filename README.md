@@ -40,15 +40,18 @@ To set up the project, follow these steps:
      $env:QGENIE_API_KEY=your_token
 
 ## Usage
-### 1. Transcribe Videos and Generate Embeddings
-Run `Whisper_Run.ipynb` to process videos, generate transcripts, and create embeddings stored in `chroma_langchain_db/`.
+### 1. Transcribe Videos
+Run `Whisper_Run.ipynb` to process videos, generate transcripts.
+
+### 2. Generate Embeddings and save to Chroma DB
+Run `embeg_gen.py` to process  transcripts to generate embeddings and save to DB.
 
 ### 2. Interact with the RAG Agent
 The `rag_agent.py` script contains the logic for the RAG agent. You can interact with it to query your video content.
 
 ### File Structure
--   `Whisper_Run.ipynb`: Jupyter notebook for video transcription and embedding generation.
--   `embed_gen.py`: Script responsible for generating embeddings.
+-   `Whisper_Run.ipynb`: Jupyter notebook for video transcription.
+-   `embed_gen.py`: Script responsible for generating embeddings from transcript.
 -   `rag_agent.py`: Main script for the Retrieval Augmented Generation agent.
 -   `trans_playlist.json`: Stores information about transcribed videos or playlists.
 -   `chroma_langchain_db/`: Directory containing the ChromaDB vector store.
