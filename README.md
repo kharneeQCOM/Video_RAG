@@ -1,89 +1,115 @@
-# Video RAG System
+# AI Buzz Phase 2 Submission
 
-## Project Description
-This repository contains a system designed for Retrieval Augmented Generation (RAG) on video content. It leverages OpenAI's Whisper for transcribing audio from videos, generates embeddings from the transcribed text, and stores them in a ChromaDB vector store. A RAG agent then uses this data to answer queries related to the video content.
+## Idea Details
+- Team Name: Video RAG
+- Idea Title: Video Retrieval Augmented Generation (RAG) System
+- Idea url: <!-- Link to your idea in AI Buzz portal - Please fill this in as needed -->
+- Team Members
+  - <!-- Member 1 -->
+  - <!-- Member 2 -->
+- Programming language used: Python
+- AI Hub Model links
+  - <!-- link 1 - Please fill this in as needed -->
+  - <!-- link 2 - Please fill this in as needed -->
+- Target device
+  - [x] PC
+  - [ ] Mobile
+  - [ ] Others: <!-- Specify the device --> 
 
-## Features
--   **Video Transcription**: Utilizes OpenAI Whisper to convert video audio into text transcripts.
--   **Embedding Generation**: Creates vector embeddings from transcriptions for efficient retrieval.
--   **Vector Database**: Employs ChromaDB to store and manage embeddings, integrated with LangChain.
--   **Retrieval Augmented Generation**: Answers user queries by retrieving relevant video segments and generating coherent responses.
 
-## Installation
-To set up the project, follow these steps:
+## Implementation Summary
+This project implements a Retrieval Augmented Generation (RAG) system for video content. It utilizes Hugging Face's Whisper to transcribe audio from videos, generates embeddings from these transcriptions, and stores them in a ChromaDB vector store. A RAG agent then uses this data to answer user queries related to the video content, leveraging the QGenie API.
+
+### Navigation and Key Files:
+-   `Whisper_Run.ipynb`: This Jupyter notebook is used solely for transcribing audio from videos using Whisper. The generated transcripts are then used by `embed_gen.py` to create embeddings.
+-   `embed_gen.py`: Contains the core logic for generating vector embeddings from textual data.
+-   `rag_agent.py`: Implements the RAG agent, responsible for querying the ChromaDB and formulating responses based on retrieved video content.
+-   `trans_playlist.json`: Stores metadata or processed information about transcribed videos or playlists.
+-   `chroma_langchain_db/`: This directory houses the ChromaDB vector store, where all the generated embeddings are persistently stored.
+-   `rag/`: This directory might contain additional modules, utility scripts, or components specific to the RAG implementation.
+
+### Limitations:
+-   Current implementation focuses on local processing and may require significant computational resources for large video datasets.
+-   Relies on OpenAI Whisper, which might have rate limits or cost implications for heavy usage.
+
+### Future Scope:
+-   Integration with various video sources (e.g., YouTube API, local video files).
+-   Enhancement of the RAG agent for more complex query understanding and response generation.
+-   Optimization for performance and scalability.
+-   Development of a user interface for easier interaction.
+
+## Installation & Setup steps
+To set up and run the project, follow these detailed steps:
 
 1.  **Clone the repository**:
     ```bash
-    git clone https://github.com/your-username/video_rag.git
+    git clone https://github.com/your-username/video_rag.git # Replace with actual repo URL
     cd video_rag
     ```
 
-2.  **Create a virtual environment** (recommended):
+2.  **Create a virtual environment** (highly recommended):
     ```
     python -m venv venv
-    source venv/bin/activate  # On Windows: `venv\Scripts\activate`
+    .\venv\Scripts\activate
     ```
 
 3.  **Install dependencies**:
-    ```bash
-    pip install -r requirements.txt # (You may need to create this file)
     ```
-    *Note: Ensure you have `pytorch` installed with the appropriate CUDA version if you plan to use GPU for Whisper. Refer to the PyTorch documentation for details.*
-
-    ```
-4.  **Install qgenie-sdk**:
-    ```
-    pip install qgenie-sdk -i https://devpi.qualcomm.com/qcom/dev/+simple --trusted-host devpi.qualcomm.com
+    pip install -r requirements.txt
     ```
 
-5.  **Set api token**:
-     $env:QGENIE_API_KEY=your_token
+4.  **Set up environment variables**:
+    Create a file named `.env` in the root directory of the project. Add your QGenie API key and any other necessary environment variables:
+    ```
+    QGENIE_API_KEY="your_qgenie_api_key_here"
+    ```
+    Replace `"your_qgenie_api_key_here"` with your actual QGenie API key.
 
-## Usage
-### 1. Transcribe Videos
-Run `Whisper_Run.ipynb` to process videos, generate transcripts.
+    For Windows PowerShell, you can set the environment variable directly:
+    ```powershell
+    $env:QGENIE_API_KEY="your_qgenie_api_key_here"
+    ```
 
-### 2. Generate Embeddings and save to Chroma DB
-Run `embeg_gen.py` to process  transcripts to generate embeddings and save to DB.
+5.  **Generate Embeddings and Database**:
+    After setting up the environment variables and transcribing videos using `Whisper_Run.ipynb`, run `embed_gen.py` to process the transcripts and generate embeddings, storing them in the ChromaDB:
+    ```
+    python embed_gen.py
+    ```
 
-### 3. Interact with the RAG Agent
-The `rag_agent.py` script contains the logic for the RAG agent. You can interact with it to query your video content.
+6.  **Run RAG Agent**:
+    Once the embeddings are generated, you can start the RAG agent to query the video content:
+    ```
+    python rag_agent.py
+    ```
 
-### File Structure
--   `Whisper_Run.ipynb`: Jupyter notebook for video transcription.
--   `embed_gen.py`: Script responsible for generating embeddings from transcript.
--   `rag_agent.py`: Main script for the Retrieval Augmented Generation agent.
--   `trans_playlist.json`: Stores information about transcribed videos or playlists.
+## Expected output / behaviour
+The system is designed to provide intelligent answers to queries related to video content.
 
-## Contributing
-Contributions are welcome! Please feel free to open issues or submit pull requests.
+### Workflow:
+1.  **Video Processing**:
+    -   `Whisper_Run.ipynb` is executed to transcribe the audio from specified videos, generating raw transcripts.
+    -   `embed_gen.py` then takes these transcripts, generates text chunks and their corresponding embeddings, and stores these embeddings in the `chroma_langchain_db/` directory.
+    -   You should see progress outputs during transcription and embedding generation.
+2.  **Querying**: Once embeddings are generated, `rag_agent.py` can be used to query the video content.
+    -   Provide a natural language question.
+    -   The agent will retrieve relevant text segments from the ChromaDB.
+    -   It will then use an LLM (via LangChain) to synthesize a coherent answer based on the retrieved information.
+    -   The expected output is a concise answer to your question, derived directly from the video content.
 
-## Sample chat
-------------------------------------------------------------------------
-Enter your question (or 'exit' to quit): explain transformers encoder alone                                     
-------------------------------------------------------------------------
-SOURCES:
-Transformers and Self-Attention (DL 19): 120 to 1050
-------------------------------------------------------------------------
-response:
+### Validation:
+-   To validate, run `Whisper_Run.ipynb` on a small video.
+-   After successful completion, run `rag_agent.py` and ask questions directly related to the content of the video you processed.
+-   The responses should be accurate and contextually relevant to the video.
 
+## Any additional steps required for running
+- [ ] NA
+<!-- 
+Mention any additional requirements here. If not, leave the NA.
+-->
 
-Let's break down the transformer encoder alone.
-
-The transformer encoder is a neural network architecture that takes in a sequence of words, such as a sentence or a document, and produces a sequence of vectors that represent the meaning of the input.
-
-Here's how it works:
-
-1. The input sequence of words is first embedded into a matrix of word embeddings, where each row is the embedding of a different word.
-2. The matrix of word embeddings is then passed through a series of self-attention blocks, which compute the attention weights for each word in the input sequence, based on the similarity between the word and all the other words in the sequence.
-3. The self-attention mechanism allows the model to focus on the most relevant words when generating the output.
-4. The output of the self-attention mechanism is then passed through a feed-forward network (FFN), which is a fully connected neural network that takes the output of the self-attention mechanism and produces a new vector that represents the meaning of the input sequence.
-5. The output of the FFN is then passed through another self-attention block, which computes the attention weights for each word in the output sequence.
-6. The final output of the transformer encoder is a sequence of vectors that represent the meaning of the input sequence.
-
-The key innovation of the transformer encoder is the use of self-attention mechanisms, which allow the model to capture long-range dependencies between words in the input sequence. This is particularly useful for tasks like machine translation, where the model needs to capture the meaning of the entire sentence to generate the correct translation.
-
-In the example shown, the transformer encoder is trained on a document in English, and it produces an encoding of the document that captures the meaning of the sentence. This encoding can then be used as input to another neural network to generate the translation of the sentence into another language.
-------------------------------------------------------------------------
-Enter your question (or 'exit' to quit):
-
+## Submission Checklist
+- [ ] Recorded video
+- [x] Readme updated with required fields
+- [ ] Dependency installation scripts added
+- [ ] Startup script added
+- [ ] Idea url updated in Readme
