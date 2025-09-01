@@ -59,11 +59,6 @@ To set up and run the project, follow these detailed steps:
     ```
 
 4.  **Set up environment variables**:
-    Create a file named `.env` in the root directory of the project. Add your QGenie API key and any other necessary environment variables:
-    ```
-    QGENIE_API_KEY="your_qgenie_api_key_here"
-    ```
-    Replace `"your_qgenie_api_key_here"` with your actual QGenie API key.
 
     For Windows PowerShell, you can set the environment variable directly:
     ```powershell
@@ -110,6 +105,6 @@ Mention any additional requirements here. If not, leave the NA.
 ## Submission Checklist
 - [ ] Recorded video
 - [x] Readme updated with required fields
-- [ ] Dependency installation scripts added
-- [ ] Startup script added
+- [x] Dependency installation scripts added
+- [x] Startup script added
 - [ ] Idea url updated in Readme

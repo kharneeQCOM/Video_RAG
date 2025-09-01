@@ -1,3 +1,6 @@
+--extra-index-url https://devpi.qualcomm.com/qcom/dev/+simple
+--trusted-host devpi.qualcomm.com
+qgenie-sdk
 annotated-types==0.7.0
 anyio==4.10.0
 attrs==25.3.0
