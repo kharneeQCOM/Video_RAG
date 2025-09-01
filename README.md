@@ -10,8 +10,8 @@
   - Ashutosh Mishra
 - Programming language used: Python
 - AI Hub Model links
-  - <!-- link 1 - Please fill this in as needed -->
-  - <!-- link 2 - Please fill this in as needed -->
+  - https://aihub.qualcomm.com/compute/models/whisper_base
+  - https://huggingface.co/OpenGVLab/InternVL2_5-1B (efficient transformers, expected to be used later)
 - Target device
   - [x] PC
   - [ ] Mobile
