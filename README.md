@@ -5,8 +5,9 @@
 - Idea Title: Video Retrieval Augmented Generation (RAG) System
 - Idea url: <!-- Link to your idea in AI Buzz portal - Please fill this in as needed -->
 - Team Members
-  - <!-- Member 1 -->
-  - <!-- Member 2 -->
+  - Dharneesh K
+  - Vashist Vyas
+  - Ashutosh Mishra
 - Programming language used: Python
 - AI Hub Model links
   - <!-- link 1 - Please fill this in as needed -->
