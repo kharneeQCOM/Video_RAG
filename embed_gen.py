@@ -10,7 +10,6 @@ vector_store = Chroma(
     embedding_function=embedding,
     persist_directory="./chroma_langchain_db",
 )
-print(vector_store.keys())
 def json_to_store(json_file):
     with open(json_file, 'r') as f:
         data = json.load(f)
@@ -19,11 +18,10 @@ def json_to_store(json_file):
     for key,val in data.items():
         segments= val
         for segment in segments:
-            # print(segment)
+            print(segment)
             doc = Document(page_content=segment["transcription"], metadata={"video_name":key, "start_time": segment["start_time"], "end_time": segment["end_time"]})
             documents.append(doc)
     vector_store.add_documents(documents)
-    vector_store.persist()
 
 json_to_store('trans_playlist.json')
 
