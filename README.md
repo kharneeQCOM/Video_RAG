@@ -3,7 +3,7 @@
 ## Idea Details
 - Team Name: Video RAG
 - Idea Title: Video Retrieval Augmented Generation (RAG) System
-- Idea url: <!-- Link to your idea in AI Buzz portal - Please fill this in as needed -->
+- Idea url: https://aibuzz.qualcomm.com/idea/4733
 - Team Members
   - Dharneesh K
   - Vashist Vyas
@@ -104,8 +104,8 @@ Mention any additional requirements here. If not, leave the NA.
 -->
 
 ## Submission Checklist
-- [ ] Recorded video
+- [x] Recorded video
 - [x] Readme updated with required fields
 - [x] Dependency installation scripts added
 - [x] Startup script added
-- [ ] Idea url updated in Readme
+- [x] Idea url updated in Readme
