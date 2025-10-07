@@ -1,5 +1,7 @@
 # AI Buzz Phase 2 Submission
 
+- Note: the new updates after prototype is here https://github.qualcomm.com/kdharnee/VideoRAG
+
 ## Idea Details
 - Team Name: Video RAG
 - Idea Title: Video Retrieval Augmented Generation (RAG) System
